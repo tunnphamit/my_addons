@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_student_form" model="ir.ui.view">
+            <field name="name">education.student.view.form</field>
+            <field name="model">education.student</field>
+            <field name="arch" type="xml">
+                <form string="Student Form">
+                    <header>
+                        <button string="Xét tuyển" name="test" class="btn btn-primary"/>
+                    </header>
+                    <sheet>
+                        <div class="o_group mb-2 d-flex align-items-center justify-content-between">
+                            <!-- Student name -->
+                            <div class="oe_title w-75 ps-0 pe-2">
+                                <h1>
+                                    <field name="name" placeholder="VD: Phạm văn A"/>
+                                </h1>
+                            </div>
+
+                            <!-- Avatar -->
+                            <div class="o_property_avatar w-25 m-0 p-0 text-end">
+                                <field name="avatar" widget="image" class="oe_left oe_avatar" nolabel="1"/>
+                            </div>
+                        </div>
+
+                        <div class="o_form_sheet_bg">
+                            <group>
+                                <group>
+                                    <field name="email"/>
+                                    <field name="phone"/>
+                                    <field name="dob"/>
+                                </group>
+                                <group>
+                                    <field name="dob"/>
+                                </group>
+                            </group>
+
+                            <!-- Notebook -->
+                            <notebook>
+                                <page string="Thông tin bổ sung">
+                                </page>
+                            </notebook>
+                        </div>
+
+
+                    </sheet>
+
+                    <!-- Chatter -->
+                    <div class="oe_chatter o_group_col_6">
+                        <field name="message_ids" widget="mail_thread"/>
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Kanban view -->                    
+        <!-- <templates>
+            <t t-name="kanban-box">
+                <div>
+                    <div class="o_kanban_image">
+                        <field name="avatar" widget="image" class="oe_left oe_avatar" nolabel="1"/>
+                    </div>
+                    <div class="oe_kanban_details">
+                        <strong>
+                            <h2><field name="name"/></h2>
+                        </strong>
+                        <div>
+                            <span>Email:</span> <field name="email"/>
+                        </div>
+                        <div>
+                            <span>Phone:</span> <field name="phone"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </templates> -->
+        <!-- <record id="view_student_kanban" model="ir.ui.view">
+            <field name="name">education.student.view.kanban</field>
+            <field name="model">education.student</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_small_column">
+                    <field name="avatar"/>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="active"/>
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click o_kanban_record">
+                                <div class="o_kanban_image">
+                                    <field name="avatar" widget="image" class="oe_left oe_avatar" nolabel="1"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong>
+                                        <h2><field name="name"/></h2>
+                                    </strong>
+                                    <div>
+                                        <span>Email:</span> <field name="email"/>
+                                    </div>
+                                    <div>
+                                        <span>Phone:</span> <field name="phone"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+
+                </kanban>
+            </field>
+        </record> -->
+
+        <record id="view_student_kanban" model="ir.ui.view">
+            <field name="name">education.student.view.kanban</field>
+            <field name="model">education.student</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_small_column">
+                    <field name="avatar"/>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="active"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <!-- <div class="o_kanban_image text-center mb-2">
+                                <img t-att-src="kanban_image('education.student', 'avatar', record.id)" alt="Avatar" class="img img-fluid rounded-circle" style="width: 80px; height: 80px; object-fit: cover;"/>
+                            </div>
+                            <div class="oe_kanban_details text-center">
+                                <strong class="d-block mb-1" style="font-size: 14px;">
+                                    <field name="name"/>
+                                </strong>
+                                <div style="font-size: 13px;">
+                                    <div>Email: <field name="email"/></div>
+                                    <div>Phone: <field name="phone"/></div>
+                                </div>
+                            </div> -->
+                            <div class="flex flex-column align-items-center oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <field name="avatar" widget="image" class="oe_left oe_avatar" nolabel="1"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong>
+                                        <h2><field name="name"/></h2>
+                                    </strong>
+                                    <div>
+                                        <span>Email:</span> <field name="email"/>
+                                    </div>
+                                    <div>
+                                        <span>Phone:</span> <field name="phone"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        
+        <record id="action_student" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="res_model">education.student</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+    </data>
+</odoo>

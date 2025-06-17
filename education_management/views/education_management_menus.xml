@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem 
+        id="menu_root" 
+        name="Quản lý đào tạo" 
+        sequence="1" 
+        web_icon="education_management,static/description/icon.png"/>
+
+    <menuitem 
+        id="menu_student" 
+        name="Sinh viên" 
+        parent="menu_root"
+        action="action_student"
+        sequence="20"/>
+</odoo>
