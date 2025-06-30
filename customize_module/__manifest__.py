@@ -9,6 +9,7 @@
     'category': 'Customization',
     'depends': [
         'base',
+        'helpdesk'
     ],
     'data': [
     ],
